@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#363636"
+    android:orientation="vertical"
+    tools:context=".activity.SignUp">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_sign_up_activity"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="Sign Up"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <LinearLayout
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="20dp"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:text="Create an account"
+            />
+
+
+    </LinearLayout>
+
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:orientation="vertical"
+            android:layout_marginBottom="10dp"
+            android:padding="5dp">
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:hintTextColor="@color/light_gray">
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_name_signUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/light_gray"
+                    android:drawableEnd="@drawable/user_image"
+                    android:hint="   Name"
+                    android:inputType="text"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:hintTextColor="@color/light_gray">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_email_signUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/light_gray"
+                    android:hint="Email"
+                    android:drawableEnd="@drawable/ic_email"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="15dp"
+                app:hintTextColor="@color/light_gray">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_password_signUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/light_gray"
+                    android:hint="@string/password"
+                    android:drawableEnd="@drawable/ic_password"
+                    android:inputType="number"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btn_sign_in"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/custombackground_white"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="10dp"
+                android:text="SignUp"
+                android:textColor="@android:color/white"
+                android:textSize="15sp" />
+
+
+        </LinearLayout>
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+        <View
+
+            android:layout_width="wrap_content"
+            android:layout_height="0.8dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_toLeftOf="@+id/orText"
+            android:background="@color/light_gray"/>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="0.8dp"
+            android:background="@color/light_gray"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="15dp"
+            android:layout_toRightOf="@+id/orText"
+            android:layout_alignParentRight="true"/>
+
+        <TextView
+            android:id="@+id/orText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:text="User another method"
+            android:textColor="@android:color/darker_gray" />
+
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id="@+id/btn_google_signUp"
+        android:layout_marginTop="10dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/google_icon"
+        />
+
+
+
+
+
+
+
+</LinearLayout>
