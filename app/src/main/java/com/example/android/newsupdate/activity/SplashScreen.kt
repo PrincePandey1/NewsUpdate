@@ -1,5 +1,6 @@
 package com.example.android.newsupdate.activity
 
+import FirestoreClass
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,8 +12,16 @@ class SplashScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
+
         Handler().postDelayed({
-            startActivity(Intent(this, IntroActivity::class.java))
+
+            var currentUserId = FirestoreClass().getCurrentUserId()
+
+            if(currentUserId.isNotEmpty()){
+                startActivity(Intent(this, MainActivity::class.java))
+            }else {
+                startActivity(Intent(this, IntroActivity::class.java))
+            }
                               },2500)
     }
 }

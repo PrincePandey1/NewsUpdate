@@ -47,7 +47,7 @@
             app:hintTextColor="@color/light_gray">
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/et_email_signUp"
+                android:id="@+id/et_email_signIn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/light_gray"
@@ -68,19 +68,19 @@
             app:hintTextColor="@color/light_gray">
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/et_password_signUp"
+                android:id="@+id/et_password_signIn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/light_gray"
                 android:hint="@string/password"
                 android:drawableEnd="@drawable/ic_password"
-                android:inputType="number"
+                android:inputType="text"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/btn_sign_in"
+            android:id="@+id/btn_sign_in_intro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

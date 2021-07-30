@@ -2,4 +2,9 @@
     <string name="app_name">NewsUpdate</string>
     <string name="password">Password</string>
     <string name="please_wait">Please wait..</string>
+    <string name="covid_cases">Covid Cases</string>
+    <string name="share_app">Share App</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="my_profile">My Profile</string>
+    <string name="sports">Sports</string>
 </resources>

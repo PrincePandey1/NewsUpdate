@@ -14,4 +14,9 @@
     <color name="light_gray">#9E9E9E</color>
 
     <color name="snackbar_error_color">#F72400</color>
+
+    <color name="metallic_black">#1B1212</color>
+    <color name="meta_black">#28282B</color>
+
+    <color name="theme_color">#363636</color>
 </resources>

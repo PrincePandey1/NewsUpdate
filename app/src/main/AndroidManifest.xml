@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NewsUpdate">
+        <activity android:name=".activity.sports_activity"></activity>
         <activity android:name=".activity.BaseActivity"></activity>
         <activity
             android:name=".activity.SplashScreen"

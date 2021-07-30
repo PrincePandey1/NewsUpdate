@@ -8,9 +8,10 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.android.newsupdate.R
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.progress_dialog.*
 
-class BaseActivity : AppCompatActivity() {
+open class BaseActivity : AppCompatActivity() {
 
     private lateinit var mProgressDialog: Dialog
 
