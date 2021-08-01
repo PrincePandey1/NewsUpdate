@@ -7,4 +7,8 @@
     <string name="sign_out">Sign Out</string>
     <string name="my_profile">My Profile</string>
     <string name="sports">Sports</string>
+    <string name="update">update</string>
+    <string name="mobile">Mobile</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
 </resources>

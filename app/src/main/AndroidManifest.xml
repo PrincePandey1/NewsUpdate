@@ -9,8 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NewsUpdate">
-        <activity android:name=".activity.sports_activity"></activity>
-        <activity android:name=".activity.BaseActivity"></activity>
+        <activity android:name=".activity.covid_cases">
+
+        </activity>
+        <activity android:name=".activity.MyProfileActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <activity android:name=".activity.sports_activity" />
+        <activity android:name=".activity.BaseActivity" />
         <activity
             android:name=".activity.SplashScreen"
             android:screenOrientation="portrait"
