@@ -46,6 +46,14 @@ class FirestoreClass: BaseActivity() {
                 when(activity){
                     is IntroActivity ->{
                         activity.signInSuccess(loggedInUser)
+                    }is MyProfileActivity ->{
+                        if(loggedInUser != null){
+                            activity.setUserDataInUI(loggedInUser)
+                        }
+                    }is MainActivity ->{
+                        if (loggedInUser != null){
+                            activity.updateNavigationUserDetails(loggedInUser)
+                        }
                     }
 
 
@@ -63,6 +71,40 @@ class FirestoreClass: BaseActivity() {
 
                 Log.e("SignInSuccess","Something went Wrong")
             }
+    }
+
+    fun updateUserProfileData(activity: Activity,userHashMap:  HashMap<String, Any>) {
+        mFireStore.collection(Constants.USERS)
+                .document(getCurrentUserId())
+                .update(userHashMap)
+                .addOnSuccessListener {
+                    Log.e(activity.javaClass.simpleName,"Profile Data updated")
+                    Toast.makeText(activity,"Profile updated successfully",Toast.LENGTH_LONG).show()
+                    when(activity){
+                      //  is MainActivity ->{
+                          //  activity.tokenUpdateSuccess()
+                       // }
+                        is MyProfileActivity ->{
+                            activity.profileUpdateSuccess()
+                        }
+                    }
+
+                }.addOnFailureListener {
+                    e->
+                   when(activity){
+                       // is MainActivity ->{
+                          //  activity.hideProgressDialog()
+                       // }
+                        is MyProfileActivity ->{
+                            activity.hideProgressDialog()
+                        }
+                    }
+
+
+                    Log.e(activity.javaClass.simpleName,"Error while creating a board.")
+                    Toast.makeText(activity,"Something went wrong!",Toast.LENGTH_LONG).show()
+
+                }
     }
 
 }

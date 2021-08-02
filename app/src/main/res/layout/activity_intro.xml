@@ -74,7 +74,7 @@
                 android:backgroundTint="@color/light_gray"
                 android:hint="@string/password"
                 android:drawableEnd="@drawable/ic_password"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -92,7 +92,7 @@
             android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="10dp"
-            android:text="SignIn"
+            android:text="Sign In"
             android:textColor="@android:color/white"
             android:textSize="15sp" />
 

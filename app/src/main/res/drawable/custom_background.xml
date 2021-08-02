@@ -9,6 +9,10 @@
         android:endColor="@color/purple_200"
         android:type="linear">
     </gradient>
+    <corners
+        android:radius="10dp"
+        />
+
 
 
 
