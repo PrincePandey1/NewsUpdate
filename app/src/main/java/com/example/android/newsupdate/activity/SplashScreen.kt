@@ -1,10 +1,11 @@
 package com.example.android.newsupdate.activity
 
-import FirestoreClass
+import FireStoreClass
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.view.WindowManager
 import com.example.android.newsupdate.R
 
 class SplashScreen : AppCompatActivity() {
@@ -12,16 +13,22 @@ class SplashScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
+        window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,  //Inorder to hide status bar
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+        )
 
         Handler().postDelayed({
 
-            var currentUserId = FirestoreClass().getCurrentUserId()
+            var currentUserId = FireStoreClass().getCurrentUserId()
 
             if(currentUserId.isNotEmpty()){
                 startActivity(Intent(this, MainActivity::class.java))
             }else {
                 startActivity(Intent(this, IntroActivity::class.java))
             }
+            finish()
                               },2500)
+
     }
 }

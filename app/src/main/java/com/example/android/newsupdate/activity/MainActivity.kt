@@ -1,12 +1,10 @@
 package com.example.android.newsupdate.activity
 
-import FirestoreClass
+import FireStoreClass
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.core.view.GravityCompat
@@ -16,7 +14,6 @@ import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar.*
-import kotlinx.android.synthetic.main.botton_menu.*
 import kotlinx.android.synthetic.main.nav_header_main.*
 import model.User
 
@@ -36,7 +33,8 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
 
         nav_view.setNavigationItemSelectedListener(this)
 
-        FirestoreClass().loadUserData(this)
+
+          FireStoreClass().loadUserData(this)
 
 
 
@@ -62,10 +60,13 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
         }
     }
 
+
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.nav_my_profile ->{
-                 startActivity(Intent(this,MyProfileActivity::class.java))
+                 startActivityForResult(Intent(this,MyProfileActivity::class.java),
+                     MY_PROFILE_REQUEST_CODE)
             }
             R.id.nav_sign_out ->{
                 FirebaseAuth.getInstance().signOut()
@@ -75,8 +76,14 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
                 finish()
             }
             R.id.nav_share ->{
-                Toast.makeText(this,"Share your app",Toast.LENGTH_LONG).show()
+                val intent= Intent()
+                    intent.action=Intent.ACTION_SEND
+                    intent.putExtra(Intent.EXTRA_TEXT,"Hey Check out this Great app:\n" +
+                            "\"https://firebasestorage.googleapis.com/v0/b/projemanage-8c206.appspot.com/o/BOARD_IMAGE1625987130197.jpg?alt=media&token=76bd81a9-0ea7-43db-b5d9-9d8a73088e47\"")
+                    intent.type="text/plain"
+                    startActivity(Intent.createChooser(intent,"Share To:"))
             }
+
             R.id.nav_covid_cases ->{
               startActivity(Intent(this,covid_cases::class.java))
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -89,7 +96,7 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
 
 
     fun updateNavigationUserDetails(user: User){
-        hideProgressDialog()
+
         mUserName = user.name
 
         Glide.with(this)
@@ -108,7 +115,16 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
         } else {
             doubleBackToExit()
         }
+
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (resultCode == Activity.RESULT_OK  && requestCode == MY_PROFILE_REQUEST_CODE){
+            FireStoreClass().loadUserData(this)
+        }else{
+            Log.e("Cancelled","Cancelled")
+        }
     }
 
-
-}
+}//Main

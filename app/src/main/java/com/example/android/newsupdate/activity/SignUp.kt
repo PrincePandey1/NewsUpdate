@@ -1,8 +1,6 @@
 package com.example.android.newsupdate.activity
 
-import FirestoreClass
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import FireStoreClass
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
@@ -47,7 +45,7 @@ class SignUp : BaseActivity() {
                     //   FirebaseAuth.getInstance().signOut()
                     // finish()
                     val user = User(firebaseUser.uid , name , registeredEmail)
-                    FirestoreClass().registerUser(this , user)
+                    FireStoreClass().registerUser(this , user)
 
                 } else {
                     Toast.makeText(this,
