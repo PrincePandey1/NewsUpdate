@@ -1,13 +1,14 @@
 package com.example.android.newsupdate.activity
 
+import Adapter.NewsAdapter
 import FireStoreClass
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.core.view.GravityCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.android.newsupdate.R
 import com.google.android.material.navigation.NavigationView
@@ -15,16 +16,23 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar.*
 import kotlinx.android.synthetic.main.nav_header_main.*
+import dataclass.News
+import kotlinx.android.synthetic.main.content_main.*
 import model.User
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedListener{
+
+
 
     companion object{
         const val MY_PROFILE_REQUEST_CODE: Int = 11
         const val CREATE_BOARD_REQUEST_CODE: Int = 12
     }
     private lateinit var  mUserName: String
-
+    lateinit var adapter: NewsAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,11 +44,31 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
 
           FireStoreClass().loadUserData(this)
 
+         getNews() //getting headlines data from server
+
+    }//onCreate
+
+    private fun getNews() {
+        val news = NewsService.newsInstance.getHeadlines("in" , 1)
+        news.enqueue(object: Callback<News>{
+            override fun onFailure(call: Call<News>, t: Throwable) {
+                Log.d("Prince","Error in fetching News" , t)
+            }
+
+            override fun onResponse(call: Call<News>, response: Response<News>) {
+                val news = response.body()
+                if(news != null){
+                    Log.d("Prince" , news.toString())
+                   adapter = NewsAdapter(this@MainActivity , news.articles)
+                   rv_boards_list.adapter = adapter
+                    rv_boards_list.layoutManager = LinearLayoutManager(this@MainActivity)
+                }
+            }
+
+        })
 
 
     }
-
-
 
     private fun setupActionBar() {
         setSupportActionBar(toolbar_main_activity)

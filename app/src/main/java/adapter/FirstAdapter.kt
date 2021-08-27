@@ -1,5 +1,0 @@
-package adapter
-
-class FirstAdapter {
-
-}
