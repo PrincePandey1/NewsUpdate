@@ -11,4 +11,8 @@
     <string name="mobile">Mobile</string>
     <string name="email">Email</string>
     <string name="name">Name</string>
+    <string name="health">Health</string>
+    <string name="business">Business</string>
+    <string name="international">international</string>
+    <string name="entertainment">Entertainment</string>
 </resources>

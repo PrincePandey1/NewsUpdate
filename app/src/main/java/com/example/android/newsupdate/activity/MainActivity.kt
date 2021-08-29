@@ -4,9 +4,16 @@ import Adapter.NewsAdapter
 import FireStoreClass
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.Typeface
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -31,11 +38,16 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
         const val MY_PROFILE_REQUEST_CODE: Int = 11
         const val CREATE_BOARD_REQUEST_CODE: Int = 12
     }
-    private lateinit var  mUserName: String
+
+
     lateinit var adapter: NewsAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+
 
         setupActionBar()
 
@@ -44,7 +56,19 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
 
           FireStoreClass().loadUserData(this)
 
-         getNews() //getting headlines data from server
+        btn_tech.setOnClickListener {
+            startActivity(Intent(this,TechActivity::class.java))
+        }
+
+        btn_sport.setOnClickListener {
+            startActivity(Intent(this,SportActivity::class.java))
+        }
+
+
+
+
+
+        getNews() //getting headlines data from server
 
     }//onCreate
 
@@ -125,8 +149,6 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
 
     fun updateNavigationUserDetails(user: User){
 
-        mUserName = user.name
-
         Glide.with(this)
             .load(user.image)
             .centerCrop()
@@ -154,5 +176,7 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
             Log.e("Cancelled","Cancelled")
         }
     }
+ 
 
 }//Main
+

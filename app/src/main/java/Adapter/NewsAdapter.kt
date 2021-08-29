@@ -18,6 +18,7 @@ class NewsAdapter(val context: Context , val articles: List<Article>): RecyclerV
         var newsImage = itemView.findViewById<ImageView>(R.id.newsImage)
         var newsTitle = itemView.findViewById<TextView>(R.id.newsTitle)
         var newsDescription = itemView.findViewById<TextView>(R.id.newsDescription)
+        var newsAuthor = itemView.findViewById<TextView>(R.id.newsAuthor)
 
     }
 
@@ -30,6 +31,7 @@ class NewsAdapter(val context: Context , val articles: List<Article>): RecyclerV
         val article = articles[position]
         holder.newsTitle.text = article.title
         holder.newsDescription.text = article.description
+        holder.newsAuthor.text = article.author
 
         Glide.with(context)
                 .load(article.urlToImage)

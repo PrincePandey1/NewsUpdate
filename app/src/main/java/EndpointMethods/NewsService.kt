@@ -9,6 +9,7 @@ import retrofit2.http.Query
 
 //https://newsapi.org/v2/top-headlines?country=in&apiKey=f19d9c29e1d34d64a77ed4c5ecf40a7f
 //https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=f19d9c29e1d34d64a77ed4c5ecf40a7f
+//https://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=f19d9c29e1d34d64a77ed4c5ecf40a7f
 
 
 const val BASE_URL = "https://newsapi.org/"
@@ -20,6 +21,8 @@ interface NewsInterface{
     @GET("v2/top-headlines?apiKey=f19d9c29e1d34d64a77ed4c5ecf40a7f")
     fun getHeadlines(@Query("country")country: String , @Query("page")page: Int): Call<News>
 
+    @GET("v2/top-headlines?apiKey=f19d9c29e1d34d64a77ed4c5ecf40a7f")
+    fun getTechHeadlines(@Query("country")country: String ,@Query("category")category: String, @Query("page")page: Int): Call<News>
     // http://newsapi.org/v2/top-headlines?apiKey=f19d9c29e1d34d64a77ed4c5ecf40a7f&country=in&page=1
 }
 
