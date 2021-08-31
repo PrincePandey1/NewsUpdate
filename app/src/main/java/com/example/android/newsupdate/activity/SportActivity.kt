@@ -25,11 +25,27 @@ class SportActivity : AppCompatActivity() {
         setContentView(R.layout.activity_sport)
 
        setUpActionBar()
-        getTechNews()
+        getSportNews()
 
         btn_health.setOnClickListener {
             startActivity(Intent(this,HealthActivity::class.java))
         }
+
+       btn_tech.setOnClickListener {
+           startActivity(Intent(this,TechActivity::class.java))
+       }
+
+        btn_business.setOnClickListener {
+            startActivity(Intent(this,BusinessActivity::class.java))
+        }
+
+        btn_media.setOnClickListener {
+            startActivity(Intent(this,MediaActivity::class.java))
+        }
+        btn_foreign.setOnClickListener {
+            startActivity(Intent(this,ForeignActivity::class.java))
+        }
+
 
 
     }
@@ -52,7 +68,7 @@ class SportActivity : AppCompatActivity() {
 
 
 
-    private fun getTechNews(){
+    private fun getSportNews(){
 
         val news = NewsService.newsInstance.getTechHeadlines("in","sports",1)
         news.enqueue(object : Callback<News> {

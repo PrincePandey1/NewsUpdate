@@ -4,16 +4,9 @@ import Adapter.NewsAdapter
 import FireStoreClass
 import android.app.Activity
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.Typeface
-import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
-import android.view.View
-import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -56,6 +49,7 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
 
           FireStoreClass().loadUserData(this)
 
+
         btn_tech.setOnClickListener {
             startActivity(Intent(this,TechActivity::class.java))
         }
@@ -63,6 +57,20 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
         btn_sport.setOnClickListener {
             startActivity(Intent(this,SportActivity::class.java))
         }
+        btn_health.setOnClickListener {
+            startActivity(Intent(this,HealthActivity::class.java))
+        }
+        btn_business.setOnClickListener {
+            startActivity(Intent(this,BusinessActivity::class.java))
+        }
+
+        btn_media.setOnClickListener {
+            startActivity(Intent(this,MediaActivity::class.java))
+        }
+        btn_foreign.setOnClickListener {
+            startActivity(Intent(this,ForeignActivity::class.java))
+        }
+
 
 
 
@@ -137,9 +145,9 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
             }
 
             R.id.nav_covid_cases ->{
-              startActivity(Intent(this,covid_cases::class.java))
+              startActivity(Intent(this,CoronaActivity::class.java))
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-                finish()
+
             }
         }
 

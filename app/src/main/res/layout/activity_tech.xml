@@ -27,13 +27,10 @@
     </androidx.appcompat.widget.Toolbar>
 
 
-
-
-
     <include
         layout="@layout/content_main"
         android:layout_below="@id/toolbar_tech_activity"
-        android:layout_height="700dp"
+        android:layout_height="680dp"
         android:layout_width="match_parent" />
 
 

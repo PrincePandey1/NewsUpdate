@@ -16,7 +16,7 @@ const val BASE_URL = "https://newsapi.org/"
 const val API_KEY = "f19d9c29e1d34d64a77ed4c5ecf40a7f"
 
 
-interface NewsInterface{
+interface NewsInterface  {
 
     @GET("v2/top-headlines?apiKey=f19d9c29e1d34d64a77ed4c5ecf40a7f")
     fun getHeadlines(@Query("country")country: String , @Query("page")page: Int): Call<News>

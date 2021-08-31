@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide
 import com.example.android.newsupdate.R
 import dataclass.Article
 
-class TechAdapter(val context: Context, val article: List<Article>):RecyclerView.Adapter<TechAdapter.MyViewHolder>() {
+class ForeignAdapter(val context: Context, val article: List<Article>): RecyclerView.Adapter<ForeignAdapter.MyViewHolder>() {
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         var newsImage = itemView.findViewById<ImageView>(R.id.newsImage)

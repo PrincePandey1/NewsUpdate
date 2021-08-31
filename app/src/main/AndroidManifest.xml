@@ -16,14 +16,32 @@
         android:theme="@style/Theme.NewsUpdate"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".activity.HealthActivity"></activity>
-        <activity android:name=".activity.BusinessActivity" />
-        <activity android:name=".activity.SportActivity"
+        <activity
+            android:name=".activity.CoronaActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+
+        <activity
+            android:name=".activity.HealthActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
-        <activity android:name=".activity.ForeignActivity" />
-        <activity android:name=".activity.MediaActivity" />
+        <activity
+            android:name=".activity.BusinessActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".activity.SportActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".activity.ForeignActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".activity.MediaActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".activity.TechActivity"
             android:screenOrientation="portrait"
@@ -32,9 +50,10 @@
             android:name=".activity.MyProfileActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".activity.covid_cases" />
-
-        <activity android:name=".activity.BaseActivity" />
+        <activity
+            android:name=".activity.BaseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".activity.SplashScreen"
             android:screenOrientation="portrait"

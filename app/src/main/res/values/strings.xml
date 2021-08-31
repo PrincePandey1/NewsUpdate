@@ -15,4 +15,7 @@
     <string name="business">Business</string>
     <string name="international">international</string>
     <string name="entertainment">Entertainment</string>
+    <string name="covid_update">Covid Update</string>
+    <string name="corona_update">Corona Update</string>
+
 </resources>
