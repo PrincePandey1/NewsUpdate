@@ -14,7 +14,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CoronaActivity : AppCompatActivity() {
+class CoronaActivity : BaseActivity() {
 
     lateinit var adapter: CovidAdapter
 
@@ -44,8 +44,12 @@ class CoronaActivity : AppCompatActivity() {
 
     private fun getresult() {
         val data = Interface.instance.getData()
+
+        showProgressDialog("Please wait..")
+
         data.enqueue(object : Callback<MyData?> {
             override fun onResponse(call: Call<MyData?>, response: Response<MyData?>) {
+                hideProgressDialog()
                 val response = response.body()
                 Log.d("Success" , response.toString())
 
@@ -58,6 +62,7 @@ class CoronaActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<MyData?>, t: Throwable) {
+                hideProgressDialog()
                 Log.d("Error" , "Something Is Wrong")
             }
         })

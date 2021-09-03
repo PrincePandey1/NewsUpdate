@@ -51,23 +51,29 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
 
         btn_tech.setOnClickListener {
             startActivity(Intent(this,TechActivity::class.java))
+            btn_tech.isSelected =! btn_tech.isSelected
         }
 
         btn_sport.setOnClickListener {
             startActivity(Intent(this,SportActivity::class.java))
+            btn_sport.isSelected =! btn_sport.isSelected
         }
         btn_health.setOnClickListener {
             startActivity(Intent(this,HealthActivity::class.java))
+            btn_health.isSelected =! btn_health.isSelected
         }
         btn_business.setOnClickListener {
             startActivity(Intent(this,BusinessActivity::class.java))
+            btn_business.isSelected =! btn_business.isSelected
         }
 
         btn_media.setOnClickListener {
             startActivity(Intent(this,MediaActivity::class.java))
+            btn_media.isSelected =! btn_media.isSelected
         }
         btn_foreign.setOnClickListener {
             startActivity(Intent(this,ForeignActivity::class.java))
+            btn_foreign.isSelected =! btn_foreign.isSelected
         }
 
 
@@ -82,13 +88,17 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
     }//onCreate
 
     private fun getNews() {
+
+        showProgressDialog("Please wait..")
         val news = NewsService.newsInstance.getHeadlines("in" , 1)
         news.enqueue(object: Callback<News>{
             override fun onFailure(call: Call<News>, t: Throwable) {
+                hideProgressDialog()
                 Log.d("Prince","Error in fetching News" , t)
             }
 
             override fun onResponse(call: Call<News>, response: Response<News>) {
+                hideProgressDialog()
                 val news = response.body()
                 if(news != null){
                     Log.d("Prince" , news.toString())

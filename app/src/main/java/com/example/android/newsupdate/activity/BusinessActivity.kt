@@ -12,11 +12,12 @@ import dataclass.News
 import kotlinx.android.synthetic.main.activity_business.*
 import kotlinx.android.synthetic.main.activity_health.*
 import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.android.synthetic.main.progress_dialog.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class BusinessActivity : AppCompatActivity() {
+class BusinessActivity : BaseActivity() {
 
     lateinit var adapter: BusinessAdapter
 
@@ -65,8 +66,12 @@ class BusinessActivity : AppCompatActivity() {
     private fun getBusinessNews(){
 
         val news = NewsService.newsInstance.getTechHeadlines("in","business",1)
+
+        showProgressDialog("Please wait..")
         news.enqueue(object: Callback<News> {
             override fun onResponse(call: Call<News>, response: Response<News>) {
+
+                hideProgressDialog()
 
                 var news = response.body()
                 Log.d("Success",news.toString())
@@ -80,6 +85,9 @@ class BusinessActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<News>, t: Throwable) {
+
+                hideProgressDialog()
+
                 Log.d("Failure","No Response From Server" , t)
             }
 

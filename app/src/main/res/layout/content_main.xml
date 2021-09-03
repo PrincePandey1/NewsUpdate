@@ -53,6 +53,7 @@
                         android:text="Tech"
                         android:textAllCaps="false"
                         android:onClick="tech"
+                        android:backgroundTint="@color/background_color"
                         android:padding="12dp"
                         android:textColor="@color/white"
                         android:layout_marginRight="5dp"

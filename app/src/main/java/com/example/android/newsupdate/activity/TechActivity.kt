@@ -3,6 +3,7 @@ package com.example.android.newsupdate.activity
 import Adapter.HealthAdapter
 import Adapter.TechAdapter
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -28,7 +29,8 @@ class TechActivity : AppCompatActivity() {
         setUpActionBar()
         getTechNews()
 
-
+        btn_tech.setBackgroundColor(Color.BLUE)
+        
         btn_health.setOnClickListener {
             startActivity(Intent(this,HealthActivity::class.java))
         }

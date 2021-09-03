@@ -15,7 +15,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HealthActivity : AppCompatActivity() {
+class HealthActivity : BaseActivity() {
 
     lateinit var adapter: HealthAdapter
 
@@ -66,10 +66,12 @@ class HealthActivity : AppCompatActivity() {
 
     private fun getHealthNews(){
 
+        showProgressDialog("Please wait..")
         val news = NewsService.newsInstance.getTechHeadlines("in","health",1)
         news.enqueue(object: Callback<News>{
             override fun onResponse(call: Call<News>, response: Response<News>) {
 
+                hideProgressDialog()
                 var news = response.body()
                 Log.d("Success",news.toString())
 
@@ -82,6 +84,8 @@ class HealthActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<News>, t: Throwable) {
+
+                hideProgressDialog()
                Log.d("Failure","No Response From Server" , t)
             }
 
