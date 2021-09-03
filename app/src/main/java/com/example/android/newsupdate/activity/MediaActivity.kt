@@ -16,7 +16,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MediaActivity : AppCompatActivity() {
+class MediaActivity : BaseActivity() {
 
     lateinit var adapter: MediaAdapter
 
@@ -63,10 +63,12 @@ class MediaActivity : AppCompatActivity() {
 
     private fun getMediaNews(){
 
+        showProgressDialog("Please wait..")
         val news = NewsService.newsInstance.getTechHeadlines("in","business",1)
         news.enqueue(object: Callback<News> {
             override fun onResponse(call: Call<News>, response: Response<News>) {
 
+                hideProgressDialog()
                 var news = response.body()
                 Log.d("Success",news.toString())
 
@@ -79,6 +81,7 @@ class MediaActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<News>, t: Throwable) {
+                hideProgressDialog()
                 Log.d("Failure","No Response From Server" , t)
             }
 

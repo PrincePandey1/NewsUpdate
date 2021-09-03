@@ -17,7 +17,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class TechActivity : AppCompatActivity() {
+class TechActivity : BaseActivity() {
 
     lateinit var adapter: TechAdapter
 
@@ -70,10 +70,13 @@ class TechActivity : AppCompatActivity() {
 
     private fun getTechNews(){
 
+        showProgressDialog("Please wait..")
+
         val news = NewsService.newsInstance.getTechHeadlines("in","technology",1)
         news.enqueue(object: Callback<News>{
             override fun onResponse(call: Call<News>, response: Response<News>) {
 
+                hideProgressDialog()
                 var news = response.body()
                 Log.d("Success",news.toString())
 
@@ -86,6 +89,8 @@ class TechActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<News>, t: Throwable) {
+
+                hideProgressDialog()
                 Log.d("Failure","No Response From Server" , t)
             }
 

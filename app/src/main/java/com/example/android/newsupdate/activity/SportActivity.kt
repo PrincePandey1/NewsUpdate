@@ -16,7 +16,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SportActivity : AppCompatActivity() {
+class SportActivity : BaseActivity() {
 
     lateinit var adapter: SportAdapter
 
@@ -70,9 +70,12 @@ class SportActivity : AppCompatActivity() {
 
     private fun getSportNews(){
 
+        showProgressDialog("Please wait..")
         val news = NewsService.newsInstance.getTechHeadlines("in","sports",1)
         news.enqueue(object : Callback<News> {
             override fun onResponse(call: Call<News>, response: Response<News>) {
+
+                hideProgressDialog()
                 val news = response.body()
                 Log.d("Success" , news.toString())
 
@@ -85,6 +88,7 @@ class SportActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<News>, t: Throwable) {
+                hideProgressDialog()
                 Log.d("Failure","Something went Wrong" , t)
             }
 
