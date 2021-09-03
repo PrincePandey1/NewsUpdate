@@ -1,6 +1,5 @@
 package com.example.android.newsupdate.activity
 
-import FireStoreClass
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -19,7 +18,6 @@ import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_my_profile.*
 import model.User
 import java.io.IOException
-import java.util.jar.Manifest
 
 class MyProfileActivity : BaseActivity() {
 

@@ -1,6 +1,8 @@
 package Adapter
 
+import webview.WebTechActivity
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,7 +41,9 @@ class TechAdapter(val context: Context, val article: List<Article>):RecyclerView
                 .into(holder.newsImage)
 
         holder.itemView.setOnClickListener {
-            Toast.makeText(context, item.title , Toast.LENGTH_LONG).show()
+            val intent = Intent(context , WebTechActivity::class.java)
+            intent.putExtra("URL",item.url)
+            context.startActivity(intent)
         }
 
     }

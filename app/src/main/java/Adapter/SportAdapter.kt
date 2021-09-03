@@ -1,6 +1,7 @@
 package Adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.android.newsupdate.R
 import dataclass.Article
+import webview.WebHealthActivity
+import webview.WebSportActivity
 import java.util.zip.Inflater
 
 class SportAdapter(val context: Context, val article: List<Article>):RecyclerView.Adapter<SportAdapter.SportViewHolder>() {
@@ -40,7 +43,9 @@ class SportAdapter(val context: Context, val article: List<Article>):RecyclerVie
              .into(holder.newsImage)
 
          holder.itemView.setOnClickListener {
-             Toast.makeText(context, item.title , Toast.LENGTH_LONG).show()
+             val intent = Intent(context , WebSportActivity::class.java)
+             intent.putExtra("URL",item.url)
+             context.startActivity(intent)
          }
 
      }

@@ -30,7 +30,7 @@
     <include
         layout="@layout/content_main"
         android:layout_below="@id/toolbar_business_activity"
-        android:layout_height="680dp"
+        android:layout_height="820dp"
         android:layout_width="match_parent" />
 
 

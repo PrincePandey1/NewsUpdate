@@ -1,6 +1,7 @@
 package Adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.android.newsupdate.R
 import dataclass.Article
+import webview.WebBusinessActivity
 
 class BusinessAdapter(val context: Context , val article: List<Article>): RecyclerView.Adapter<BusinessAdapter.MyViewHolder>() {
 
@@ -39,7 +41,9 @@ class BusinessAdapter(val context: Context , val article: List<Article>): Recycl
                 .into(holder.newsImage)
 
         holder.itemView.setOnClickListener {
-            Toast.makeText(context, article.title, Toast.LENGTH_SHORT).show()
+           val intent = Intent(context ,  WebBusinessActivity::class.java)
+            intent.putExtra("URL" , article.url)
+            context.startActivity(intent)
         }
     }
 

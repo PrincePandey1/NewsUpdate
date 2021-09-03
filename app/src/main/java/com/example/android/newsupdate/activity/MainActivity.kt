@@ -1,7 +1,6 @@
 package com.example.android.newsupdate.activity
 
 import Adapter.NewsAdapter
-import FireStoreClass
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +8,6 @@ import android.util.Log
 import android.view.MenuItem
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.android.newsupdate.R
 import com.google.android.material.navigation.NavigationView
@@ -35,8 +33,6 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
 
 
     lateinit var adapter: NewsAdapter
-    var pageNum = 1
-    var totalResult = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,7 +82,7 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
     }//onCreate
 
     private fun getNews() {
-        val news = NewsService.newsInstance.getHeadlines("in" , pageNum)
+        val news = NewsService.newsInstance.getHeadlines("in" , 1)
         news.enqueue(object: Callback<News>{
             override fun onFailure(call: Call<News>, t: Throwable) {
                 Log.d("Prince","Error in fetching News" , t)
@@ -96,7 +92,6 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
                 val news = response.body()
                 if(news != null){
                     Log.d("Prince" , news.toString())
-                    totalResult = news.result
                    adapter = NewsAdapter(this@MainActivity , news.articles)
                    rv_boards_list.adapter = adapter
                     rv_boards_list.layoutManager = LinearLayoutManager(this@MainActivity)

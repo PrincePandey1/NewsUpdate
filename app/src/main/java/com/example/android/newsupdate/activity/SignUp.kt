@@ -1,6 +1,6 @@
 package com.example.android.newsupdate.activity
 
-import FireStoreClass
+import com.example.android.newsupdate.activity.FireStoreClass
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast

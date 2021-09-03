@@ -1,6 +1,7 @@
 package Adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.android.newsupdate.R
 import dataclass.Article
+import webview.WebHealthActivity
+import webview.WebTechActivity
 
 class HealthAdapter(val context: Context, val articles: List<Article>): RecyclerView.Adapter<HealthAdapter.ArticleViewHolder>() {
 
@@ -38,7 +41,9 @@ class HealthAdapter(val context: Context, val articles: List<Article>): Recycler
                 .into(holder.newsImage)
 
         holder.itemView.setOnClickListener {
-            Toast.makeText(context, article.title , Toast.LENGTH_LONG).show()
+            val intent = Intent(context , WebHealthActivity::class.java)
+            intent.putExtra("URL",article.url)
+            context.startActivity(intent)
         }
     }
 

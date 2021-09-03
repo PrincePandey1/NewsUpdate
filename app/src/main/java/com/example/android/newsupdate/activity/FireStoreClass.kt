@@ -1,7 +1,8 @@
+package com.example.android.newsupdate.activity
+
 import android.app.Activity
 import android.util.Log
 import android.widget.Toast
-import com.example.android.newsupdate.activity.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions

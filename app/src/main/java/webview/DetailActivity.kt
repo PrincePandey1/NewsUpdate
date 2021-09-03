@@ -1,4 +1,4 @@
-package com.example.android.newsupdate.activity
+package webview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,7 +7,6 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.example.android.newsupdate.R
 import kotlinx.android.synthetic.main.activity_detail.*
-import kotlinx.android.synthetic.main.progress_dialog.*
 
 class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,11 +15,11 @@ class DetailActivity : AppCompatActivity() {
 
         val url = intent.getStringExtra("URL")
         if(url != null){
-            detailwebView.settings.javaScriptEnabled = true
-            detailwebView.settings.userAgentString = "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3"
-            detailwebView.webViewClient = object: WebViewClient(){
+            detailwebView.settings.javaScriptEnabled = true //if webview contain any java script related work then would be visible
+            detailwebView.settings.userAgentString = "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3" //to make sure mobile webview should be send
+            detailwebView.webViewClient = object: WebViewClient(){  //Getting the webView and storing in the object
                 override fun onPageFinished(view: WebView?, url: String?) {
-                    super.onPageFinished(view, url)
+                    super.onPageFinished(view, url)  //After successful rendering it will display the data
                     detailprogressBar.visibility = View.GONE
                     detailwebView.visibility = View.VISIBLE
                 }

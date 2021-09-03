@@ -31,7 +31,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         android:orientation="vertical"
         android:layout_marginBottom="10dp"
         android:padding="5dp">
@@ -96,14 +96,13 @@
             android:textColor="@android:color/white"
             android:textSize="15sp" />
 
-
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:layout_margin="40dp"
+        android:layout_margin="30dp"
         android:orientation="horizontal">
 
         <TextView
@@ -123,6 +122,54 @@
             android:text="SignUp" />
 
     </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
+        <View
+
+            android:layout_width="wrap_content"
+            android:layout_height="0.8dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_toLeftOf="@+id/orText"
+            android:background="@color/light_gray"/>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="0.8dp"
+            android:background="@color/light_gray"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="15dp"
+            android:layout_toRightOf="@+id/orText"
+            android:layout_alignParentRight="true"/>
+
+        <TextView
+            android:id="@+id/orText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:text="User another method"
+            android:textColor="@android:color/darker_gray" />
+
+    </RelativeLayout>
+
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/btn_google_signIn"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" />
+
+
+
+
 
 
 

@@ -1,6 +1,7 @@
 package Adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.android.newsupdate.R
 import dataclass.Article
+import webview.WebForeignActivity
 
 class ForeignAdapter(val context: Context, val article: List<Article>): RecyclerView.Adapter<ForeignAdapter.MyViewHolder>() {
 
@@ -39,7 +41,9 @@ class ForeignAdapter(val context: Context, val article: List<Article>): Recycler
                 .into(holder.newsImage)
 
         holder.itemView.setOnClickListener {
-            Toast.makeText(context, item.title , Toast.LENGTH_LONG).show()
+           val intent = Intent(context,WebForeignActivity::class.java)
+           intent.putExtra("URL" , item.url)
+            context.startActivity(intent)
         }
 
     }
