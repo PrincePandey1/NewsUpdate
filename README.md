@@ -8,7 +8,7 @@
 ## Features ##
 
 - Login And SignUp Page
-- Google SignUp
+- Google SignIn
 - Covid News(With statewise)
 - News with Different Categories
 - Share
